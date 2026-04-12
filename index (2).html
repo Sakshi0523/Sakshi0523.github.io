@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sakshi Pocham Zadi &mdash; Data Analyst</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:    #dff0e4;
+    --ink2:   #9fc9aa;
+    --ink3:   #5a876a;
+    --paper:  #0d1a14;
+    --paper2: #112018;
+    --paper3: #162a1e;
+    --accent: #6dbf8c;
+    --accent2:#4da870;
+    --line:   rgba(109,191,140,0.13);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(--ink); font-size: 16px; line-height: 1.7; overflow-x: hidden; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 5vw; background: rgba(13,26,20,0.93); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+  .nav-logo { font-family: 'DM Serif Display', serif; font-size: 1.15rem; color: var(--ink); text-decoration: none; letter-spacing: -0.01em; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink3); text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* HERO */
+  .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: 80px; }
+  .hero-left { display: flex; flex-direction: column; justify-content: center; padding: 6vw 5vw 6vw 7vw; border-right: 1px solid var(--line); }
+  .hero-eyebrow { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 10px; }
+  .hero-eyebrow::before { content: ''; display: block; width: 28px; height: 1px; background: var(--accent); }
+  .hero-name { font-family: 'DM Serif Display', serif; font-size: clamp(2.8rem, 5vw, 4.2rem); line-height: 1.08; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 1.5rem; }
+  .hero-name em { font-style: italic; color: var(--accent); }
+  .hero-bio { font-size: 1rem; color: var(--ink2); max-width: 420px; line-height: 1.75; margin-bottom: 2.5rem; }
+  .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn-primary { display: inline-flex; align-items: center; gap: 8px; padding: 0.75rem 1.5rem; background: var(--accent); color: var(--paper); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; border: 1.5px solid var(--accent); transition: background 0.2s, color 0.2s; }
+  .btn-primary:hover { background: transparent; color: var(--accent); }
+  .btn-secondary { display: inline-flex; align-items: center; gap: 8px; padding: 0.75rem 1.5rem; background: transparent; color: var(--ink); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; border: 1.5px solid var(--line); transition: border-color 0.2s, color 0.2s; }
+  .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+  .hero-right { display: flex; flex-direction: column; justify-content: flex-end; padding: 4vw; background: var(--paper2); position: relative; overflow: hidden; }
+  .hero-right::before { content: ''; position: absolute; top: -120px; right: -120px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(109,191,140,0.07) 0%, transparent 70%); pointer-events: none; }
+  .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .stat-box { background: var(--paper2); padding: 1.75rem 1.5rem; }
+  .stat-num { font-family: 'DM Serif Display', serif; font-size: 2.4rem; color: var(--accent); line-height: 1; margin-bottom: 0.35rem; }
+  .stat-label { font-size: 0.75rem; color: var(--ink3); letter-spacing: 0.04em; }
+  .hero-scroll { position: absolute; bottom: 2rem; right: 2rem; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink3); writing-mode: vertical-rl; display: flex; align-items: center; gap: 8px; }
+  .hero-scroll::after { content: ''; display: block; width: 1px; height: 40px; background: var(--ink3); }
+
+  /* SECTIONS */
+  section { padding: 6rem 7vw; }
+  .section-label { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 10px; }
+  .section-label::before { content: ''; display: block; width: 20px; height: 1px; background: var(--accent); }
+  .section-title { font-family: 'DM Serif Display', serif; font-size: clamp(1.8rem, 3vw, 2.6rem); line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 3rem; max-width: 500px; color: var(--ink); }
+
+  /* ABOUT */
+  #about { background: var(--paper); border-top: 1px solid var(--line); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6vw; align-items: start; }
+  .about-text p { font-size: 1.05rem; color: var(--ink2); line-height: 1.8; margin-bottom: 1.25rem; }
+  .about-text p strong { color: var(--ink); font-weight: 500; }
+  .about-aside { display: flex; flex-direction: column; gap: 0; border: 1px solid var(--line); }
+  .aside-row { display: flex; align-items: flex-start; gap: 1rem; padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--line); }
+  .aside-row:last-child { border-bottom: none; }
+  .aside-icon { width: 32px; height: 32px; background: var(--paper2); border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; font-size: 0.9rem; flex-shrink: 0; margin-top: 2px; }
+  .aside-key { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink3); margin-bottom: 3px; }
+  .aside-val { font-size: 0.9rem; color: var(--ink); }
+  .aside-val a { color: var(--accent); text-decoration: none; }
+  .aside-val a:hover { text-decoration: underline; }
+
+  /* PROJECTS */
+  #projects { background: var(--paper2); border-top: 1px solid var(--line); }
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
+  .project-card { background: var(--paper); border: 1px solid var(--line); display: flex; flex-direction: column; transition: transform 0.25s, box-shadow 0.25s; }
+  .project-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(109,191,140,0.07); }
+  .project-img { height: 180px; background: var(--paper3); display: flex; align-items: center; justify-content: center; border-bottom: 1px solid var(--line); overflow: hidden; position: relative; }
+  .project-img-inner { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-family: 'DM Serif Display', serif; font-size: 0.95rem; color: var(--ink3); flex-direction: column; gap: 8px; text-align: center; padding: 0 1rem; }
+  .project-img-icon { font-size: 2.2rem; line-height: 1; }
+  .proj-tag { position: absolute; top: 1rem; left: 1rem; font-size: 0.65rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 10px; background: var(--accent); color: var(--paper); }
+  .project-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+  .project-title { font-family: 'DM Serif Display', serif; font-size: 1.25rem; letter-spacing: -0.01em; margin-bottom: 0.6rem; color: var(--ink); }
+  .project-desc { font-size: 0.85rem; color: var(--ink2); line-height: 1.7; margin-bottom: 1.1rem; }
+  .project-findings { list-style: none; margin-bottom: 1.25rem; display: flex; flex-direction: column; gap: 7px; }
+  .project-findings li { font-size: 0.82rem; color: var(--ink2); padding-left: 1.1rem; position: relative; line-height: 1.5; }
+  .project-findings li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 0.75rem; }
+  .project-tools { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 1.25rem; }
+  .tool-tag { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; padding: 3px 9px; background: var(--paper2); border: 1px solid var(--line); color: var(--ink2); }
+  .project-link { display: inline-flex; align-items: center; gap: 6px; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); text-decoration: none; margin-top: auto; transition: gap 0.2s; }
+  .project-link:hover { gap: 10px; }
+
+  /* SKILLS */
+  #skills { background: var(--paper); border-top: 1px solid var(--line); }
+  .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .skill-group { background: var(--paper); padding: 2rem 1.75rem; }
+  .skill-group-title { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.25rem; }
+  .skill-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .skill-list li { font-size: 0.92rem; color: var(--ink2); display: flex; align-items: center; gap: 8px; }
+  .skill-list li::before { content: ''; display: block; width: 5px; height: 5px; background: var(--accent2); border-radius: 50%; flex-shrink: 0; }
+  .skill-list li strong { color: var(--ink); font-weight: 500; }
+
+  /* EXPERIENCE */
+  #experience { background: var(--paper2); border-top: 1px solid var(--line); }
+  .exp-item { display: grid; grid-template-columns: 200px 1fr; gap: 3vw; padding: 2.5rem 0; border-bottom: 1px solid var(--line); }
+  .exp-item:first-of-type { padding-top: 0; }
+  .exp-item:last-of-type { border-bottom: none; }
+  .exp-company { font-family: 'DM Serif Display', serif; font-size: 1.05rem; color: var(--ink); margin-bottom: 4px; }
+  .exp-period { font-size: 0.75rem; color: var(--ink3); letter-spacing: 0.04em; }
+  .exp-role { font-size: 0.95rem; font-weight: 500; color: var(--ink); margin-bottom: 0.75rem; }
+  .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .exp-bullets li { font-size: 0.88rem; color: var(--ink2); padding-left: 1.1rem; position: relative; line-height: 1.6; }
+  .exp-bullets li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 0.75rem; }
+
+  /* CERTIFICATIONS */
+  #certifications { background: var(--paper); border-top: 1px solid var(--line); }
+  .cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem; }
+  .cert-card { border: 1px solid var(--line); padding: 1.5rem; background: var(--paper); transition: border-color 0.2s, transform 0.2s; }
+  .cert-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .cert-issuer { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+  .cert-name { font-size: 0.92rem; font-weight: 500; color: var(--ink); line-height: 1.4; }
+
+  /* CONTACT */
+  #contact { background: #080f0a; border-top: 1px solid var(--line); padding: 6rem 7vw; }
+  #contact .section-label { color: var(--accent); }
+  #contact .section-label::before { background: var(--accent); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4vw; align-items: center; }
+  .contact-note { font-size: 1rem; color: var(--ink2); line-height: 1.8; max-width: 420px; }
+  .contact-links { display: flex; flex-direction: column; gap: 0; border: 1px solid var(--line); }
+  .contact-row { display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--line); text-decoration: none; transition: background 0.2s; }
+  .contact-row:last-child { border-bottom: none; }
+  .contact-row:hover { background: rgba(109,191,140,0.05); }
+  .contact-type { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink3); margin-bottom: 3px; }
+  .contact-val { font-size: 0.9rem; color: var(--ink); }
+  .contact-arrow { color: var(--ink3); font-size: 1rem; transition: color 0.2s, transform 0.2s; }
+  .contact-row:hover .contact-arrow { color: var(--accent); transform: translateX(4px); }
+
+  /* FOOTER */
+  footer { background: #080f0a; border-top: 1px solid var(--line); padding: 1.5rem 7vw; display: flex; align-items: center; justify-content: space-between; }
+  footer p { font-size: 0.75rem; color: var(--ink3); letter-spacing: 0.04em; }
+
+  /* ANIMATIONS */
+  .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    .hero-left { padding: 4rem 6vw; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .exp-item { grid-template-columns: 1fr; gap: 0.75rem; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">Sakshi Pocham Zadi</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Open to fully remote roles</div>
+    <h1 class="hero-name">Data<br><em>Analyst</em><br>&amp; BI Specialist</h1>
+    <p class="hero-bio">I turn raw data into decisions. SQL, Power BI, and Excel &mdash; with a track record of analysing 19,000+ customer records and $1.2M+ in retail sales to build dashboards that answer real business questions.</p>
+    <div class="hero-btns">
+      <a href="mailto:zadisakshi23@gmail.com" class="btn-primary">Get in touch &rarr;</a>
+      <a href="https://github.com/Sakshi0523" target="_blank" class="btn-secondary">GitHub &nearr;</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-stats">
+      <div class="stat-box"><div class="stat-num">19K+</div><div class="stat-label">Customer records analysed</div></div>
+      <div class="stat-box"><div class="stat-num">$1.2M</div><div class="stat-label">Retail sales evaluated</div></div>
+      <div class="stat-box"><div class="stat-num">3</div><div class="stat-label">End-to-end projects</div></div>
+      <div class="stat-box"><div class="stat-num">41%</div><div class="stat-label">Churn rate identified</div></div>
+    </div>
+    <div class="hero-scroll">Scroll</div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">Who I am</div>
+  <h2 class="section-title">Electrical engineer turned data analyst</h2>
+  <div class="about-grid fade-up">
+    <div class="about-text">
+      <p>I'm a <strong>BE Electrical Engineering graduate</strong> from Savitribai Phule Pune University with a growing specialisation in business analytics. I discovered during my studies that what I enjoy most isn't circuits &mdash; it's the moment when a messy dataset becomes a clear answer.</p>
+      <p>During my internship at <strong>Hackveda Company Ltd</strong> in Pune, I wrote SQL queries across multi-table datasets, cleaned and validated 10,000+ records, and built reports that directly supported business decisions. I've since built independent projects in sales analytics, customer churn modelling, and quick-commerce market analysis.</p>
+      <p>I'm looking for a <strong>fully remote fresher analyst role</strong> at a consulting firm or corporate MNC &mdash; where I can bring structured thinking, fast learning, and genuine curiosity about business problems.</p>
+    </div>
+    <div class="about-aside">
+      <div class="aside-row">
+        <div class="aside-icon">&#128205;</div>
+        <div><div class="aside-key">Location</div><div class="aside-val">Chandrapur, Maharashtra &middot; Open to fully remote roles</div></div>
+      </div>
+      <div class="aside-row">
+        <div class="aside-icon">&#127891;</div>
+        <div><div class="aside-key">Education</div><div class="aside-val">BE Electrical Engineering &middot; SPPU &middot; 2022</div></div>
+      </div>
+      <div class="aside-row">
+        <div class="aside-icon">&#128188;</div>
+        <div><div class="aside-key">Experience</div><div class="aside-val">SQL Developer Intern &middot; Hackveda &middot; Feb&ndash;May 2024</div></div>
+      </div>
+      <div class="aside-row">
+        <div class="aside-icon">&#128202;</div>
+        <div><div class="aside-key">Core tools</div><div class="aside-val">SQL &middot; Power BI &middot; Microsoft Excel</div></div>
+      </div>
+      <div class="aside-row">
+        <div class="aside-icon">&#128025;</div>
+        <div><div class="aside-key">GitHub</div><div class="aside-val"><a href="https://github.com/Sakshi0523" target="_blank">github.com/Sakshi0523</a></div></div>
+      </div>
+      <div class="aside-row">
+        <div class="aside-icon">&#9993;</div>
+        <div><div class="aside-key">Email</div><div class="aside-val">zadisakshi23@gmail.com</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">Work</div>
+  <h2 class="section-title">Projects that answer real questions</h2>
+  <div class="projects-grid fade-up">
+
+    <div class="project-card">
+      <div class="project-img">
+        <span class="proj-tag">Power BI &middot; SQL</span>
+        <div class="project-img-inner">
+          <div class="project-img-icon">&#128722;</div>
+          <span>Blinkit Market Analysis</span>
+        </div>
+      </div>
+      <div class="project-body">
+        <h3 class="project-title">Blinkit Market Analysis</h3>
+        <p class="project-desc">Comprehensive framework evaluating $1.20M in total sales across 8,500+ items to identify high-performing market segments and operational efficiencies for a quick-commerce retail model.</p>
+        <ul class="project-findings">
+          <li>Medium-sized outlets identified as core revenue drivers &mdash; informing outlet expansion strategy</li>
+          <li>Tier 3 locations lead total sales at $472K &mdash; highest untapped growth potential across all regions</li>
+          <li>Regular fat-content items significantly outperform Low Fat &mdash; inventory prioritisation recommendation delivered</li>
+          <li>Item visibility vs. revenue correlation analysed across 8,500+ SKUs to optimise shelf placement</li>
+        </ul>
+        <div class="project-tools">
+          <span class="tool-tag">SQL (MySQL)</span>
+          <span class="tool-tag">Power BI</span>
+          <span class="tool-tag">DAX</span>
+          <span class="tool-tag">Excel</span>
+        </div>
+        <a href="https://github.com/Sakshi0523" target="_blank" class="project-link">View on GitHub &rarr;</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-img">
+        <span class="proj-tag">Power BI</span>
+        <div class="project-img-inner">
+          <div class="project-img-icon">&#128200;</div>
+          <span>Sales Performance Dashboard</span>
+        </div>
+      </div>
+      <div class="project-body">
+        <h3 class="project-title">Sales Performance Dashboard</h3>
+        <p class="project-desc">End-to-end retail sales analysis on a 10,000-row dataset. Built an interactive Power BI dashboard with slicers by region, segment, and product category to surface revenue drivers.</p>
+        <ul class="project-findings">
+          <li>California and New York drove $190K combined revenue &mdash; 38% of total &mdash; flagged as priority expansion regions</li>
+          <li>Consumer segment generates 48% of all revenue, enabling targeted high-value marketing strategy</li>
+          <li>Drill-through views by sub-category built to surface underperforming product lines</li>
+        </ul>
+        <div class="project-tools">
+          <span class="tool-tag">Power BI</span>
+          <span class="tool-tag">DAX</span>
+          <span class="tool-tag">Excel</span>
+          <span class="tool-tag">Data Cleaning</span>
+        </div>
+        <a href="https://github.com/Sakshi0523" target="_blank" class="project-link">View on GitHub &rarr;</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-img">
+        <span class="proj-tag">SQL &middot; Power BI</span>
+        <div class="project-img-inner">
+          <div class="project-img-icon">&#128269;</div>
+          <span>Customer Churn Analysis</span>
+        </div>
+      </div>
+      <div class="project-body">
+        <h3 class="project-title">Customer Churn Analysis</h3>
+        <p class="project-desc">Analysed churn behaviour across 19,000+ customers using SQL for data extraction and Power BI for visualisation. Built a retention risk matrix segmenting customers by tenure and service type.</p>
+        <ul class="project-findings">
+          <li>Fiber Optic users exhibit the highest churn at 41.1% &mdash; primary target for service reliability improvements</li>
+          <li>Tier 3 locations emerged as a key growth driver at $472K &mdash; underserved and high-potential</li>
+          <li>Customers segmented into 4 retention risk tiers by tenure &times; service type to prioritise intervention</li>
+        </ul>
+        <div class="project-tools">
+          <span class="tool-tag">SQL</span>
+          <span class="tool-tag">Power BI</span>
+          <span class="tool-tag">Excel</span>
+          <span class="tool-tag">Customer Analytics</span>
+        </div>
+        <a href="https://github.com/Sakshi0523" target="_blank" class="project-link">View on GitHub &rarr;</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">Capabilities</div>
+  <h2 class="section-title">Tools I work with</h2>
+  <div class="skills-grid fade-up">
+    <div class="skill-group">
+      <div class="skill-group-title">Analytics &amp; BI</div>
+      <ul class="skill-list">
+        <li><strong>Power BI</strong> &mdash; dashboards, DAX, Power Query</li>
+        <li><strong>Microsoft Excel</strong> &mdash; pivot tables, VLOOKUP, advanced formulas</li>
+        <li><strong>Data Visualisation</strong> &mdash; chart design, storytelling with data</li>
+      </ul>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Data &amp; Database</div>
+      <ul class="skill-list">
+        <li><strong>SQL (MySQL)</strong> &mdash; joins, subqueries, aggregations, CTEs</li>
+        <li><strong>Data Cleaning</strong> &mdash; null handling, deduplication, validation</li>
+        <li><strong>Data Preparation</strong> &mdash; transformation, KPI extraction</li>
+      </ul>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Soft Skills</div>
+      <ul class="skill-list">
+        <li><strong>Stakeholder Communication</strong> &mdash; translating data for non-technical audiences</li>
+        <li><strong>Problem Solving</strong> &mdash; structured, first-principles thinking</li>
+        <li><strong>Attention to Detail</strong> &mdash; accuracy-first approach to all analysis</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">Experience</div>
+  <h2 class="section-title">Where I've worked</h2>
+  <div class="exp-item fade-up">
+    <div class="exp-left">
+      <div class="exp-company">Hackveda Company Ltd</div>
+      <div class="exp-period">Feb 2024 &ndash; May 2024 &middot; Pune</div>
+    </div>
+    <div class="exp-right">
+      <div class="exp-role">SQL Developer Intern</div>
+      <ul class="exp-bullets">
+        <li>Wrote 15+ SQL queries involving multi-table joins, subqueries, and aggregations to extract KPIs for weekly business reports</li>
+        <li>Mapped 6+ business workflows across sales and operations teams to identify data gaps and inform query design priorities</li>
+        <li>Cleaned and validated datasets of 10,000+ records, reducing reporting errors by identifying duplicate and null-value anomalies</li>
+        <li>Analysed business requirements and translated them into structured data extraction logic for non-technical stakeholders</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="section-label">Credentials</div>
+  <h2 class="section-title">Certifications</h2>
+  <div class="cert-grid fade-up">
+    <div class="cert-card">
+      <div class="cert-issuer">Microsoft &middot; LinkedIn</div>
+      <div class="cert-name">Career Essentials in Business Analysis</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-issuer">Forage</div>
+      <div class="cert-name">Data Visualisation Virtual Experience</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-issuer">HubSpot Academy</div>
+      <div class="cert-name">Business Analytics</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Let's talk</div>
+  <h2 class="section-title">Open to fully remote analyst<br>roles from mid-2026</h2>
+  <div class="contact-grid fade-up">
+    <p class="contact-note">I'm actively looking for fully remote Business Analyst, MIS Analyst, and Data Analyst roles at consulting firms and MNCs. If you're hiring or know someone who is &mdash; I'd love to connect.</p>
+    <div class="contact-links">
+      <a href="mailto:zadisakshi23@gmail.com" class="contact-row">
+        <div><div class="contact-type">Email</div><div class="contact-val">zadisakshi23@gmail.com</div></div>
+        <span class="contact-arrow">&rarr;</span>
+      </a>
+      <a href="https://linkedin.com/in/sakshi-zadi-49293621b/" target="_blank" class="contact-row">
+        <div><div class="contact-type">LinkedIn</div><div class="contact-val">linkedin.com/in/sakshi-zadi-49293621b</div></div>
+        <span class="contact-arrow">&rarr;</span>
+      </a>
+      <a href="https://github.com/Sakshi0523" target="_blank" class="contact-row">
+        <div><div class="contact-type">GitHub</div><div class="contact-val">github.com/Sakshi0523</div></div>
+        <span class="contact-arrow">&rarr;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2026 Sakshi Pocham Zadi</p>
+  <p>Built with HTML &middot; Hosted on GitHub Pages</p>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
