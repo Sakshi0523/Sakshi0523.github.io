@@ -81,7 +81,7 @@ section { padding: 6rem 7vw; }
 .project-link { display: inline-flex; align-items: center; gap: 6px; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); text-decoration: none; margin-top: auto; transition: gap 0.2s; }
 .project-link:hover { gap: 10px; }
 #skills { background: var(--paper); border-top: 1px solid var(--line); }
-.skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
 .skill-group { background: var(--paper); padding: 2rem 1.75rem; }
 .skill-group-title { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.25rem; }
 .skill-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
@@ -159,7 +159,7 @@ footer p { font-size: 0.75rem; color: var(--ink3); letter-spacing: 0.04em; }
 <div class="hero-stats">
 <div class="stat-box"><div class="stat-num">19K+</div><div class="stat-label">Customer records analysed</div></div>
 <div class="stat-box"><div class="stat-num">$1.2M</div><div class="stat-label">Retail sales evaluated</div></div>
-<div class="stat-box"><div class="stat-num">3</div><div class="stat-label">End-to-end projects</div></div>
+<div class="stat-box"><div class="stat-num">4</div><div class="stat-label">End-to-end projects</div></div>
 <div class="stat-box"><div class="stat-num">41%</div><div class="stat-label">Churn rate identified</div></div>
 </div>
 <div class="hero-scroll">Scroll</div>
@@ -286,6 +286,34 @@ footer p { font-size: 0.75rem; color: var(--ink3); letter-spacing: 0.04em; }
 <a href="https://github.com/Sakshi0523/customer-churn-analysis" target="_blank" class="project-link">View on GitHub &rarr;</a>
 </div>
 </div>
+
+<div class="project-card">
+<div class="project-img">
+<span class="proj-tag">Python &middot; SQL &middot; Power BI</span>
+<div class="project-img-inner">
+<div class="project-img-icon">&#128181;</div>
+<span>Customer Behavior Analysis</span>
+</div>
+</div>
+<div class="project-body">
+<h3 class="project-title">Customer Behavior Analysis</h3>
+<p class="project-desc">End-to-end analysis of retail shopping behaviour &mdash; cleaning and feature-engineering raw data in Python, structuring it in MySQL, and visualising purchase drivers in an interactive Power BI dashboard.</p>
+<ul class="project-findings">
+<li>Engineered age-group and purchase-frequency features in Python to make segments easier to compare</li>
+<li>Identified and removed a fully redundant column (promo code duplicate of discount flag) during cleaning</li>
+<li>Structured cleaned data into MySQL for SQL-based querying of loyalty and purchase-driver questions</li>
+<li>Built an interactive Power BI dashboard translating segment-level trends into marketing recommendations</li>
+</ul>
+<div class="project-tools">
+<span class="tool-tag">Python</span>
+<span class="tool-tag">Pandas</span>
+<span class="tool-tag">SQLAlchemy</span>
+<span class="tool-tag">SQL (MySQL)</span>
+<span class="tool-tag">Power BI</span>
+</div>
+<a href="https://github.com/Sakshi0523/Customer_Behavior_Analysis" target="_blank" class="project-link">View on GitHub &rarr;</a>
+</div>
+</div>
 </div>
 </section>
 
@@ -307,6 +335,15 @@ footer p { font-size: 0.75rem; color: var(--ink3); letter-spacing: 0.04em; }
 <li><strong>SQL (MySQL)</strong> &mdash; joins, subqueries, aggregations, CTEs</li>
 <li><strong>Data Cleaning</strong> &mdash; null handling, deduplication, validation</li>
 <li><strong>Data Preparation</strong> &mdash; transformation, KPI extraction</li>
+</ul>
+</div>
+<div class="skill-group">
+<div class="skill-group-title">Python for Data Analysis</div>
+<ul class="skill-list">
+<li><strong>Pandas</strong> &mdash; loading, cleaning, and reshaping structured datasets</li>
+<li><strong>Feature Engineering</strong> &mdash; deriving fields like age groups and purchase-frequency days from raw columns</li>
+<li><strong>SQLAlchemy + PyMySQL</strong> &mdash; loading cleaned DataFrames into MySQL for downstream querying</li>
+<li><strong>Jupyter Notebook</strong> &mdash; structuring an end-to-end, reproducible analysis workflow</li>
 </ul>
 </div>
 <div class="skill-group">
@@ -349,12 +386,16 @@ footer p { font-size: 0.75rem; color: var(--ink3); letter-spacing: 0.04em; }
 <div class="cert-name">Career Essentials in Business Analysis</div>
 </div>
 <div class="cert-card">
-<div class="cert-issuer">Forage</div>
-<div class="cert-name">Data Visualisation Virtual Experience</div>
+<div class="cert-issuer">TATA Group &middot; Forage</div>
+<div class="cert-name">Data Visualisation Virtual Experience Program</div>
 </div>
 <div class="cert-card">
-<div class="cert-issuer">HubSpot Academy</div>
-<div class="cert-name">Business Analytics</div>
+<div class="cert-issuer">PwC &middot; Forage</div>
+<div class="cert-name">Management Consulting Simulation Virtual Experience</div>
+</div>
+<div class="cert-card">
+<div class="cert-issuer">Coursera</div>
+<div class="cert-name">Business Analysis &amp; Process Management</div>
 </div>
 </div>
 </section>
